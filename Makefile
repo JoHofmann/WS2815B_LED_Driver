@@ -1,7 +1,7 @@
 PROJECT=ws2815b_driver
 
 GHDL_CMD=ghdl
-GHDL_FLAGS=#--std=08
+GHDL_FLAGS=
 STOP_TIME=1000us
 
 SYNTH_DIR=synth
@@ -15,9 +15,6 @@ FILES = $(PROJECT)_rtl \
 	memwriteinterface_rtl
 
 TB_FILENAME = tb_$(PROJECT)
-# TB_FILENAME = tb_memreadinterface
-# TB_FILENAME = tb_transmission
-# TB_FILENAME = tb_recieving
 
 PCF_FILE = pinmap
 
@@ -33,7 +30,7 @@ build:
 	nextpnr-ice40 --debug --lp1k --package cm36 --json $(SYNTH_DIR)/$(PROJECT).json --pcf $(SYNTH_DIR)/$(PCF_FILE).pcf --asc $(SYNTH_DIR)/$(PROJECT).asc --freq 48
 	icepack $(SYNTH_DIR)/$(PROJECT).asc $(SYNTH_DIR)/$(PROJECT).bin
 
-prog_flash:
+flash:
 	@if [ -d '$(ICELINK_DIR)' ]; \
         then \
             cp $(SYNTH_DIR)/$(PROJECT).bin $(ICELINK_DIR); \
@@ -54,7 +51,7 @@ sim:
 	@$(GHDL_CMD) -e $(GHDL_FLAGS) $(TB_FILENAME)
 	@$(GHDL_CMD) -r $(GHDL_FLAGS) $(TB_FILENAME) --vcd=$(SIM_DIR)/$(PROJECT).vcd --wave=$(SIM_DIR)/$(PROJECT).ghw --stop-time=$(STOP_TIME)
 	
-	gtkwave $(SIM_DIR)/wave.ghw
+	gtkwave $(SIM_DIR)/$(PROJECT).ghw
 
 show:
 	@for f in $(FILES); do \
