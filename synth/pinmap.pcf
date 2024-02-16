@@ -1,0 +1,8 @@
+# pinmap.pcf
+set_io --warn-no-port CLOCK_50      C5
+set_io --warn-no-port RESET_N       B4
+set_io --warn-no-port SPI_CLK_IN    A3
+set_io --warn-no-port SPI_MOSI_IN   B1
+set_io --warn-no-port SPI_CS_IN     D1
+set_io --warn-no-port INTERRUPT_OUT B4
+set_io --warn-no-port SERIAL_OUT    A1
