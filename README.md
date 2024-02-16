@@ -15,10 +15,10 @@ See datasheet of WS2815B.
 ## Usage
 
 To run the project you need to install following tools:
-    - GHDL
-    - Yosys
-    - nextpnr
-    - GTKWave
+- GHDL
+- Yosys
+- nextpnr
+- GTKWave
 
 Synthesis:
 ```console
