@@ -35,7 +35,7 @@ Simulation:
 $ make sim
 ```
 
-Show:
+Netlist Viewer:
 ```console
 $ make show
 ```
