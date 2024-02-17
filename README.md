@@ -41,7 +41,7 @@ $ make show
 ```
 
 ## Simulation
-
+Simulation with four Leds:
 ![Simulation with GTKWave](doc/images/Simulation.png)
 
 ## Synthesis
